@@ -2,7 +2,7 @@
 
 ProseMirror is a famous rich text editor library. More info can be found at : https://prosemirror.net/
 
-## Live Demo : https://react-prosemirror-edj1accze-tanmay-shahs-projects.vercel.app/
+## Live Demo : https://react-prosemirror-murex.vercel.app
 
 ## Purpose
 The ProseMirror rich text editor library is a pure javascript library and it becomes very difficult to add react components
