@@ -5,7 +5,7 @@ import { NodeViewType } from '../../../editor-components/Editor'
 import { destroyNodeView } from '../destroyNodeView'
 
 export const buildPillNode = (setSpecs: Dispatch<React.SetStateAction<NodeViewType[]>>): NodeViewConstructor => {
-  return (node: Node, view: EditorView, getPos: () => number | undefined) => {
+  return (node: Node, _view: EditorView, getPos: () => number | undefined) => {
     const el = document.createElement('span')
     el.setAttribute('class', 'node-view inline-block align-middle')
     el.setAttribute('name', node.attrs.name)
