@@ -21,4 +21,9 @@ You can add your React component entry inside NodeViewPortal component ```(src/e
 Also add entry for your React component inside the editor schema
 You can also generalize the methods in insertPillNode file for your components ```(src/utils/commands/pill/insertPillNode.ts)```
 
+## Local Installation
+1. clone the repo
+2. npm install
+3. npm run dev
+
 
