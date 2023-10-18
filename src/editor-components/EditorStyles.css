@@ -1,0 +1,467 @@
+/* ProseMirror Reset Styles Starts Here */
+.ProseMirror {
+  position: relative;
+}
+
+.ProseMirror {
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  white-space: break-spaces;
+  -webkit-font-variant-ligatures: none;
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0; /* the above doesn't seem to work in Edge */
+}
+
+.ProseMirror pre {
+  white-space: pre-wrap;
+}
+
+.prose p {
+  @apply m-0;
+}
+
+.prose :where(ul > li):not(:where([class~="not-prose"] *))::marker,
+.prose :where(ol > li):not(:where([class~="not-prose"] *))::marker {
+  @apply text-black;
+}
+
+.ProseMirror li {
+  position: relative;
+}
+
+.ProseMirror-hideselection *::selection {
+  background: transparent;
+}
+.ProseMirror-hideselection *::-moz-selection {
+  background: transparent;
+}
+.ProseMirror-hideselection {
+  caret-color: transparent;
+}
+
+.ProseMirror-selectednode {
+  @apply outline-none;
+}
+
+/* Make sure li selections wrap around markers */
+
+li.ProseMirror-selectednode {
+  outline: none;
+}
+
+li.ProseMirror-selectednode:after {
+  content: "";
+  position: absolute;
+  left: -32px;
+  right: -2px;
+  top: -2px;
+  bottom: -2px;
+  border: 2px solid #8cf;
+  pointer-events: none;
+}
+
+/* Protect against generic img rules */
+
+img.ProseMirror-separator {
+  display: inline !important;
+  border: none !important;
+  margin: 0 !important;
+}
+.ProseMirror-textblock-dropdown {
+  min-width: 3em;
+}
+
+.ProseMirror-menu {
+  margin: 0 -4px;
+  line-height: 1;
+}
+
+.ProseMirror-tooltip .ProseMirror-menu {
+  width: -webkit-fit-content;
+  width: fit-content;
+  white-space: pre;
+}
+
+.ProseMirror-menuseparator {
+  border-right: 1px solid #ddd;
+  margin-right: 3px;
+}
+
+.ProseMirror-menu-dropdown,
+.ProseMirror-menu-dropdown-menu {
+  font-size: 90%;
+  white-space: nowrap;
+}
+
+.ProseMirror-menu-dropdown {
+  vertical-align: 1px;
+  cursor: pointer;
+  position: relative;
+  padding-right: 15px;
+}
+
+.ProseMirror-menu-dropdown-wrap {
+  padding: 1px 0 1px 4px;
+  display: inline-block;
+  position: relative;
+}
+
+.ProseMirror-menu-dropdown:after {
+  content: "";
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid currentColor;
+  opacity: 0.6;
+  position: absolute;
+  right: 4px;
+  top: calc(50% - 2px);
+}
+
+.ProseMirror-menu-dropdown-menu,
+.ProseMirror-menu-submenu {
+  @apply absolute bg-white p-2 border border-gray-100 rounded shadow-md;
+}
+
+.ProseMirror-menu-dropdown-menu {
+  z-index: 15;
+  min-width: 6em;
+}
+
+.ProseMirror-menu-dropdown-item {
+  @apply bg-white px-2 py-1 text-sm font-normal text-gray-900 rounded cursor-pointer;
+}
+
+.ProseMirror-menu-dropdown-item:not(:last-child) {
+  @apply mb-1;
+}
+
+.ProseMirror-menu-dropdown-item:hover {
+  @apply bg-gray-100;
+}
+
+.ProseMirror-menu-submenu-wrap {
+  position: relative;
+  margin-right: -4px;
+}
+
+.ProseMirror-menu-submenu-label:after {
+  content: "";
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 4px solid currentColor;
+  opacity: 0.6;
+  position: absolute;
+  right: 4px;
+  top: calc(50% - 4px);
+}
+
+.ProseMirror-menu-submenu {
+  display: none;
+  min-width: 4em;
+  left: 100%;
+  top: -3px;
+}
+
+.ProseMirror-menu-active {
+  background: #eee;
+  border-radius: 4px;
+}
+
+.ProseMirror-menu-disabled {
+  opacity: 0.3;
+}
+
+.ProseMirror-menu-submenu-wrap:hover .ProseMirror-menu-submenu,
+.ProseMirror-menu-submenu-wrap-active .ProseMirror-menu-submenu {
+  display: block;
+}
+
+.ProseMirror-menubar {
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  color: #666;
+  padding: 8px;
+  left: 0;
+  right: 0;
+  background: white;
+  z-index: 10;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: #f3f4f6;
+  overflow: visible;
+  border-radius: 4px;
+  margin-top: 8px;
+}
+
+.ProseMirror-menuitem {
+  @apply inline-flex mt-1.5 mr-2;
+}
+
+.ProseMirror-icon {
+  @apply inline-flex px-2 py-1 text-sm text-gray-700 rounded cursor-pointer;
+}
+
+.ProseMirror-icon.ProseMirror-menu-active {
+  @apply bg-gray-300;
+}
+
+.ProseMirror-menu-disabled.ProseMirror-icon {
+  cursor: default;
+}
+
+.ProseMirror-icon svg {
+  fill: currentColor;
+  height: 1em;
+}
+
+.ProseMirror-icon span {
+  vertical-align: text-top;
+}
+
+.ProseMirror-gapcursor {
+  display: none;
+  pointer-events: none;
+  position: absolute;
+}
+
+.ProseMirror-gapcursor:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -2px;
+  width: 20px;
+  border-top: 1px solid black;
+  animation: ProseMirror-cursor-blink 1.1s steps(2, start) infinite;
+}
+
+@keyframes ProseMirror-cursor-blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+.ProseMirror-focused .ProseMirror-gapcursor {
+  display: block;
+}
+/* Add space around the hr to make clicking it easier */
+
+.ProseMirror-example-setup-style hr {
+  padding: 2px 10px;
+  border: none;
+  margin: 1em 0;
+}
+
+.ProseMirror-example-setup-style hr:after {
+  content: "";
+  display: block;
+  height: 1px;
+  background-color: silver;
+  line-height: 2px;
+}
+
+.ProseMirror ul,
+.ProseMirror ol {
+  padding-left: 40px;
+}
+
+.ProseMirror blockquote {
+  padding-left: 1em;
+  border-left: 3px solid #eee;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.ProseMirror-example-setup-style img {
+  cursor: default;
+}
+
+.ProseMirror-invalid {
+  @apply text-sm font-medium text-red-600 mt-1;
+}
+
+#editor,
+.editor {
+  background: white;
+  color: black;
+  background-clip: padding-box;
+  border-radius: 4px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  padding: 5px 0;
+  margin-bottom: 23px;
+}
+
+.ProseMirror {
+  outline: none;
+}
+
+/* NOTE: ProseMirror Styles Starts Here */
+.snippetEditor {
+  word-break: break-word;
+  @apply overflow-y-auto;
+}
+
+.snippetEditor .ProseMirror-menubar-wrapper {
+  @apply h-full;
+}
+
+.snippetEditor .ProseMirror {
+  @apply min-h-full p-2 text-gray-900 text-sm font-normal text-left;
+}
+
+/* Fonts Style Starts */
+.snippetEditor .ProseMirror b,
+.snippetEditor .ProseMirror strong {
+  @apply font-bold;
+}
+
+.snippetEditor .ProseMirror p {
+  @apply text-sm leading-6 font-normal;
+}
+
+/* Heading Font */
+.snippetEditor .ProseMirror h1 {
+  @apply text-3xl;
+}
+.snippetEditor .ProseMirror h2 {
+  @apply text-2xl;
+}
+.snippetEditor .ProseMirror h3 {
+  @apply text-xl;
+}
+.snippetEditor .ProseMirror h4 {
+  @apply text-lg;
+}
+.snippetEditor .ProseMirror h5 {
+  @apply text-sm;
+}
+.snippetEditor .ProseMirror h6 {
+  @apply text-xs;
+}
+
+/* Heading Font Weight */
+.snippetEditor .ProseMirror h1,
+.snippetEditor .ProseMirror h2,
+.snippetEditor .ProseMirror h3,
+.snippetEditor .ProseMirror h4,
+.snippetEditor .ProseMirror h5,
+.snippetEditor .ProseMirror h5,
+.snippetEditor .ProseMirror h6 {
+  @apply font-bold;
+}
+
+/* Font Spaces */
+.snippetEditor .ProseMirror h1,
+.snippetEditor .ProseMirror h2,
+.snippetEditor .ProseMirror h3,
+.snippetEditor .ProseMirror h4,
+.snippetEditor .ProseMirror h5,
+.snippetEditor .ProseMirror h5,
+.snippetEditor .ProseMirror h6 {
+  @apply my-4;
+}
+
+/* Lists Style */
+.snippetEditor .ProseMirror ul,
+.snippetEditor .ProseMirror ol {
+  @apply my-3.5;
+}
+.snippetEditor .ProseMirror ul li,
+.snippetEditor .ProseMirror ol li {
+  @apply p-0 m-0;
+}
+.snippetEditor .ProseMirror ul li p,
+.snippetEditor .ProseMirror ol li p {
+  @apply m-0;
+}
+
+.snippetEditor .ProseMirror ul li > ul,
+.snippetEditor .ProseMirror ul li > ol,
+.snippetEditor .ProseMirror ol li > ul,
+.snippetEditor .ProseMirror ol li > ol {
+  @apply m-0;
+}
+/* Fonts Style Ends */
+
+/* Pill Style Starts */
+.snippetEditor .ProseMirror .pill {
+  @apply relative bg-indigo-50 px-7 py-px text-indigo-500 text-sm font-normal border border-dashed border-indigo-500 cursor-pointer rounded-lg outline-none !important;
+}
+
+.pill-wrapper .pill {
+  @apply relative h-6 bg-indigo-50 px-7 py-px text-indigo-500 text-sm font-normal border border-dashed border-indigo-500 rounded-lg outline-none !important;
+}
+
+.pill {
+  @apply hover:text-indigo-500 !important;
+}
+.pill.isSelected {
+  @apply bg-indigo-100 text-indigo-600 border-solid !important;
+}
+.pill.isSelected::before,
+.pill.isSelected::after {
+  @apply text-indigo-600 !important;
+}
+
+/* Input Pill Style */
+.snippetEditor .ProseMirror span.pill-container {
+  @apply inline-flex;
+}
+
+.snippetEditor .ProseMirror span.pill-input {
+  @apply bg-indigo-50 inline-flex px-4 py-px text-sm border border-dashed border-indigo-500 rounded-lg focus:border-solid focus:outline-none;
+}
+
+.snippetEditor .ProseMirror span.pill-input:empty::before {
+  content: attr(placeholder);
+  @apply text-gray-400;
+}
+/* Variable Pill Style Ends */
+
+/* Scroll Bar Style Starts */
+.snippetEditor-scroll-bar::-webkit-scrollbar {
+  @apply block w-1 bg-white rounded-r;
+}
+.snippetEditor-scroll-bar::-webkit-scrollbar-track {
+  @apply bg-white my-0.5 mx-0;
+}
+.snippetEditor-scroll-bar::-webkit-scrollbar-thumb {
+  @apply bg-gray-200 rounded-2xl;
+}
+.snippetEditor-scroll-bar::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400;
+}
+/* Scroll Bar Style Ends */
+
+/* NOTE: Prose Mirror Menu Bar Styles Starts Here */
+.snippetEditor .ProseMirror-menubar-wrapper .ProseMirror-menubar {
+  @apply bg-gray-100 w-auto min-h-9 top-auto inset-x-2 bottom-2 flex flex-wrap items-end p-1.5 pt-0 m-0 rounded z-1 !important;
+}
+/* Prose Mirror Menu Bar Styles Ends Here */
+
+/* ProseMirror  Branding Styles Ends Here */
+
+/* Snippet Editor Variable Form Styles Starts */
+.snippetEditor.snippet-editor-pill-form .ProseMirror {
+  @apply p-4 pr-16;
+}
+/* Snippet Editor Variable Form Styles Ends */
+
+.snippet-content-wrapper {
+  min-height: 300px;
+  height: calc(100vh - 454px);
+}
+
+.snippet-content-wrapper .ProseMirror-menu-dropdown-menu {
+  bottom: 100%;
+}
+
+.snippetEditor a {
+  @apply text-indigo-600;
+}
+
+/*
+  *REFER - We add these styles to fix this issue 👉 SNI-143
+*/
+.snippetEditor .ProseMirror span.pill-input * {
+  all: revert;
+}
